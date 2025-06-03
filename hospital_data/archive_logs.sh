@@ -19,4 +19,21 @@ case $choice in
 	1)
 		heart_data_dir="heart_data_archive"
 		file_name="heart_rate_"
-		file_time_stamp=$(date "+%Y-%m-%d_%H:%M:%S"
+		file_time_stamp=$(date "+%Y-%m-%d_%H:%M:%S")
+		archive="${log_file}${file_time_stamp}.log"
+
+if [ -f "active_logs/heart_rate_log.log" ]; 
+then
+	echo "Archiving heart_rate.log... "
+	mv "active_logs/heart_rate_log.log" $archive_dir/$file_dir/$archive
+	echo "successfully archived to $file_dir/$archive"
+
+else 
+	echo "error: log file doesn't exist"
+fi
+ 
+;;
+*)
+	echo "invalid choice: please 1"
+	;;
+esac
