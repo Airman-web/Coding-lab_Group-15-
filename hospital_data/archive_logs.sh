@@ -20,11 +20,13 @@ case $choice in
 		heart_data_dir="heart_data_archive"
 		file_name="heart_rate_"
 		file_time_stamp=$(date "+%Y-%m-%d_%H:%M:%S")
-		archive="${log_file}${file_time_stamp}.log"
+		archive="${file_log}${file_time_stamp}.log"
 
 if [ -f "active_logs/heart_rate_log.log" ]; 
 then
 	echo "Archiving heart_rate.log... "
+	mkdir -p archived_logs/heart_data_archive
+
 	mv "active_logs/heart_rate_log.log" $arch_directory/$heart_data_dir/$archive
 	echo "successfully archived to $heart_data_dir/$archive"
 
@@ -45,6 +47,7 @@ fi
 if [ -f "active_logs/temperature_data_log.log" ];
 then
 	echo "Archiving temperature_log.log..."
+	 mkdir -p archived_logs/temperature_data_archive
 	mv "active_logs/temperature_log.log" $arch_directory/$temperature_data_dir/$archive
 	echo "successfully archived to $temperature_data_dir/$archive"
 
@@ -65,6 +68,7 @@ fi
 if [ -f "active_logs/water_usage_log.log" ];
 then 
 	echo "Archiving water_usage_log.log..."
+	 mkdir -p archived_logs/water_usage_data_archive
 	mv "active_logs/water_usage_log.log" $arech_directory/$water_usage_data_dir/$archive
 	echo "successfully archived to $water_usage_data_dir/$archive"
 else
