@@ -25,8 +25,8 @@ case $choice in
 if [ -f "active_logs/heart_rate_log.log" ]; 
 then
 	echo "Archiving heart_rate.log... "
-	mv "active_logs/heart_rate_log.log" $archive_dir/$file_dir/$archive
-	echo "successfully archived to $file_dir/$archive"
+	mv "active_logs/heart_rate_log.log" $arch_directory/$heart_data_dir/$archive
+	echo "successfully archived to $heart_data_dir/$archive"
 
 else 
 	echo "error: log file doesn't exist"
