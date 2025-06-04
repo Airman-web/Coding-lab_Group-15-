@@ -36,4 +36,24 @@ fi
 *)
 	echo "invalid choice: please 1"
 	;;
+	 2)
+		 temperature_data_dir="temperature_data_archive"
+		 file_name="temperature_"
+		 file_time_stamp=$(data "+%Y-$m-$d_%H:%M:%S")
+		 archive="${log_file}${file_time_stamp}.log"
+
+if [ -f "active_logs/temperature_data_log.log" ];
+then
+	echo "Archiving temperature_log.log..."
+	mv "active_logs/temperature_log.log" $arch_directory/$temperature_data_dir/$archive
+	echo "successfully archived to $temperature_data_dir/$archive"
+
+else
+	echo "error: log file doesn't exist"
+fi
+
+;;
+*)
+	echo "invalid choice: please 2"
+	;;
 esac
