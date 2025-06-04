@@ -56,4 +56,23 @@ fi
 *)
 	echo "invalid choice: please 2"
 	;;
-esac
+	 3) 
+		 water_usage_data_dir="water_usage_data_archive"
+		 file_name="water_usage_"
+		 file_time_stamp=$(data "+%y-$m-$d_%H:%M:%S")
+		 archive="${log_file}${file_time_stamp}.log"
+
+if [ -f "active_logs/water_usage_log.log" ];
+then 
+	echo "Archiving water_usage_log.log..."
+	mv "active_logs/water_usage_log.log" $arech_directory/$water_usage_data_dir/$archive
+	echo "successfully archived to $water_usage_data_dir/$archive"
+else
+	echo "error: log file doesn't exist"
+fi
+
+;;
+*)
+	echo "invalid choice: please 3"
+	;;
+ esac
