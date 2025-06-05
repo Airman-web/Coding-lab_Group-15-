@@ -28,7 +28,7 @@ case $choice in
 	archive="${file_name}${file_time_stamp}.log"
 
 	if [ -f "active_logs/heart_rate_log.log" ]; then
-		echo "Archiving heart_rate.log... "
+		echo -e "\nArchiving heart_rate.log... "
 
 		mv "active_logs/heart_rate_log.log" "$arch_directory/$heart_data_dir/$archive"
 		echo "successfully archived to $heart_data_dir/$archive"
