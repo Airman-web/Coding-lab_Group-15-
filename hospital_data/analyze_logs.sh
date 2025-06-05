@@ -54,3 +54,24 @@ report_file="$reports_dir/analysis_report.txt"
 echo "Analysis Report - $log_type" >> "$report_file"
 echo "---------------------------------"  >> "$report_file"
 echo "" >> "$report_file"
+
+# Process each device
+while read -r count device; do
+    if [ -n "$device" ]; then
+        echo "Device: $device" >> "$report_file"
+        echo "Total Count: $count" >> "$report_file"
+
+        # Get first and last timestamps for this device
+        first_entry=$(grep "$device" "$log_file" | head -1)
+        last_entry=$(grep "$device" "$log_file" | tail -1)
+
+        if [ -n "$first_entry" ]; then
+            first_timestamp=$(echo "$first_entry" | awk '{print $1 " " $2}')
+            echo "First Entry: $first_timestamp" >> "$report_file"
+        fi
+
+        if [ -n "$last_entry" ]; then
+            last_timestamp=$(echo "$last_entry" | awk '{print $1 " " $2}')
+            echo "Last Entry: $last_timestamp" >> "$report_file"
+        fi
+
