@@ -52,7 +52,7 @@ case $choice in
 	archive="${file_name}${file_time_stamp}.log"
 
 	if [ -f "active_logs/temperature_log.log" ]; then
-		echo "Archiving temperature.log... "
+		echo -e "\nArchiving temperature.log... "
 
 		mv "active_logs/temperature_log.log" "$arch_directory/$temperature_data_dir/$archive"
 		echo "successfully archived to $temperature_data_dir/$archive"
@@ -74,10 +74,10 @@ case $choice in
 	file_time_stamp=$(date "+%Y-%m-%d_%H:%M:%S")
 	archive="${file_name}${file_time_stamp}.log"
 
-	if [ -f "active_logs/water_log.log" ]; then
-		echo "Archiving water.log... "
+	if [ -f "active_logs/water_usage_log.log" ]; then
+		echo -e "\nArchiving water_usage.log... "
 
-		mv "active_logs/water_log.log" "$arch_directory/$water_data_dir/$archive"
+		mv "active_logs/water_usage_log.log" "$arch_directory/$water_data_dir/$archive"
 		echo "successfully archived to $water_data_dir/$archive"
 
 	else
