@@ -75,3 +75,15 @@ while read -r count device; do
             echo "Last Entry: $last_timestamp" >> "$report_file"
         fi
 
+
+    echo "" >>  "$report_file"
+
+    fi
+done < "$temp_file"
+
+echo "======================================================" >> "$report_file"
+
+# Clean up
+rm "$temp_file"
+
+echo "Analysis complete! Results appended to $report_file"
