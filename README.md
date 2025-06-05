@@ -43,10 +43,10 @@ Select log to archive:
 2) Temperature
 3) Water Usage
 Enter choice (1-3): 1
-```
 
 Archiving heart_rate.log...
 Successfully archived to archived_logs/heart_data_archive/heart_rate_2025-06-05_14:23:00.log
+```
 
 ### 2. analyze.sh
 This script analyzes a current log file in active_logs/ and generates a report containing:
