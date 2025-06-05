@@ -44,3 +44,6 @@ echo -e "\nAnalyzing $log_type log file..."
 
 # used this file to temporarily processing device occurences
 temp_file=$(mktemp)
+
+# Extract device names and count occurrences
+awk '{print $3}' "$log_file" | sort | uniq -c | sort -nr > "$temp_file"
