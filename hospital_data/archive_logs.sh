@@ -16,52 +16,53 @@ if [ ! -d "$arch_directory" ]; then
 fi
 
 case $choice in
-	1)
-		heart_data_dir="heart_data_archive"
+1)
+	heart_data_dir="heart_data_archive"
 
-		if [ ! -d "$heart_data_dir"]; then
-			mkdir "$heart_data_dir"
-		fi
+	if [ ! -d "$heart_data_dir" ]; then
+		mkdir "$heart_data_dir"
+	fi
 
-		file_name="heart_rate_"
-		file_time_stamp=$(date "+%Y-%m-%d_%H:%M:%S")
-		archive="${file_name}${file_time_stamp}.log"
+	file_name="heart_rate_"
+	file_time_stamp=$(date "+%Y-%m-%d_%H:%M:%S")
+	archive="${file_name}${file_time_stamp}.log"
 
-		if [ -f "active_logs/heart_rate_log.log" ]; then
+	if [ -f "active_logs/heart_rate_log.log" ]; then
 		echo "Archiving heart_rate.log... "
 
 		mv "active_logs/heart_rate_log.log" "$arch_directory/$heart_data_dir/$archive"
 		echo "successfully archived to $heart_data_dir/$archive"
 
-		else
-			echo "error: log file doesn't exist"
-		fi
+	else
+		echo -e "\nerror: log file doesn't exist"
+	fi
 
-		;;
+	;;
 
-	2)
-		temperature_data_dir="temperature_data_archive"
+2)
+	temperature_data_dir="temperature_data_archive"
 
-		if [ ! -d "$temperature_data_dir"]; then
-			mkdir "$temperature_data_dir"
-		fi
+	# Fix the syntax error by adding space before ]
+	if [ ! -d "$arch_directory/$temperature_data_dir" ]; then
+		mkdir "$arch_directory/$temperature_data_dir"
+	fi
 
-		file_name="temperature_"
-		file_time_stamp=$(date "+%Y-%m-%d_%H:%M:%S")
-		archive="${file_name}${file_time_stamp}.log"
+	file_name="temperature_"
+	file_time_stamp=$(date "+%Y-%m-%d_%H:%M:%S")
+	archive="${file_name}${file_time_stamp}.log"
 
-		if [ -f "active_logs/temperature_log.log" ]; then
+	if [ -f "active_logs/temperature_log.log" ]; then
 		echo "Archiving temperature.log... "
 
 		mv "active_logs/temperature_log.log" "$arch_directory/$temperature_data_dir/$archive"
 		echo "successfully archived to $temperature_data_dir/$archive"
 
-		else
-			echo "error: log file doesn't exist"
-		fi
+	else
+		echo "error: log file doesn't exist"
+	fi
 
-		;;
-	*)
-		echo "invalid choice: please choose 1, 2"
-		;;
- esac
+	;;
+*)
+	echo "invalid choice: please choose 1, 2"
+	;;
+esac
