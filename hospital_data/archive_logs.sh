@@ -58,7 +58,30 @@ case $choice in
 		echo "successfully archived to $temperature_data_dir/$archive"
 
 	else
-		echo "error: log file doesn't exist"
+		echo -e "\nerror: log file doesn't exist"
+	fi
+
+	;;
+3)
+	water_data_dir="water_data_archive"
+
+	# Fix the syntax error by adding space before ]
+	if [ ! -d "$arch_directory/$water_data_dir" ]; then
+		mkdir "$arch_directory/$water_data_dir"
+	fi
+
+	file_name="water_"
+	file_time_stamp=$(date "+%Y-%m-%d_%H:%M:%S")
+	archive="${file_name}${file_time_stamp}.log"
+
+	if [ -f "active_logs/water_log.log" ]; then
+		echo "Archiving water.log... "
+
+		mv "active_logs/water_log.log" "$arch_directory/$water_data_dir/$archive"
+		echo "successfully archived to $water_data_dir/$archive"
+
+	else
+		echo -e "\nerror: log file doesn't exist"
 	fi
 
 	;;
