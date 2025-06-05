@@ -11,11 +11,11 @@ read -p "Enter choice (1-3): " choice
 # Create the archive log dir for all archives
 arch_directory="archived_logs"
 
-if [ ! -d "$arch_directory" ]; then 
+if [ ! -d "$arch_directory" ]; then
 	mkdir "$arch_directory"
 fi
 
-case $choice in 
+case $choice in
 	1)
 		heart_data_dir="heart_data_archive"
 
@@ -33,12 +33,35 @@ case $choice in
 		mv "active_logs/heart_rate_log.log" "$arch_directory/$heart_data_dir/$archive"
 		echo "successfully archived to $heart_data_dir/$archive"
 
-		else 
+		else
 			echo "error: log file doesn't exist"
 		fi
- 
+
+		;;
+
+	2)
+		temperature_data_dir="temperature_data_archive"
+
+		if [ ! -d "$temperature_data_dir"]; then
+			mkdir "$temperature_data_dir"
+		fi
+
+		file_name="temperature_"
+		file_time_stamp=$(date "+%Y-%m-%d_%H:%M:%S")
+		archive="${file_name}${file_time_stamp}.log"
+
+		if [ -f "active_logs/temperature_log.log" ]; then
+		echo "Archiving temperature.log... "
+
+		mv "active_logs/temperature_log.log" "$arch_directory/$temperature_data_dir/$archive"
+		echo "successfully archived to $temperature_data_dir/$archive"
+
+		else
+			echo "error: log file doesn't exist"
+		fi
+
 		;;
 	*)
-		echo "invalid choice: please choose 1"
+		echo "invalid choice: please choose 1, 2"
 		;;
  esac
