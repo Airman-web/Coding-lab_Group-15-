@@ -87,3 +87,4 @@ echo "======================================================" >> "$report_file"
 rm "$temp_file"
 
 echo "Analysis complete! Results appended to $report_file"
+
