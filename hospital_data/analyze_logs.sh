@@ -33,3 +33,14 @@ case $user_choice in
         ;;
 
 esac
+
+# Check if log file exists
+if [ ! -f "$log_file" ]; then
+    echo "Error: $log_file not found"
+    exit 1
+fi
+
+echo -e "\nAnalyzing $log_type log file..."
+
+# used this file to temporarily processing device occurences
+temp_file=$(mktemp)
