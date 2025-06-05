@@ -79,12 +79,18 @@ Ensure you have executable permission:
 ```
 chmod +x archive.sh analyze.sh
 ```
-Run the data simulators:
+### Run the data simulators:
 ```
 python3 heart_onitor.py start
 python3 temp_sensor.py start
 python3 water_usage.py start
 ```
-You can now run the archive and analyze scripts to archive and analyze the los you want
+You can now run the archive and analyze scripts to archive and analyze the log you want.
 
-
+## Contributors
+- Emmanuel Ayomiku Atigbi
+- Nkingi Gakindi Chris
+- Chris Marcel Hakizimana
+- Lisa Ineza
+- Melissa Bulamba Isimbi
+- Shakilla Uwamahoro
