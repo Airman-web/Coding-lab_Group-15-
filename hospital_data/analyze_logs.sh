@@ -47,3 +47,10 @@ temp_file=$(mktemp)
 
 # Extract device names and count occurrences
 awk '{print $3}' "$log_file" | sort | uniq -c | sort -nr > "$temp_file"
+
+# Prepare report content
+report_file="$reports_dir/analysis_report.txt"
+
+echo "Analysis Report - $log_type" >> "$report_file"
+echo "---------------------------------"  >> "$report_file"
+echo "" >> "$report_file"
