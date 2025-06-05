@@ -42,7 +42,6 @@ case $choice in
 2)
 	temperature_data_dir="temperature_data_archive"
 
-	# Fix the syntax error by adding space before ]
 	if [ ! -d "$arch_directory/$temperature_data_dir" ]; then
 		mkdir "$arch_directory/$temperature_data_dir"
 	fi
@@ -65,12 +64,11 @@ case $choice in
 3)
 	water_data_dir="water_usage_data_archive"
 
-	# Fix the syntax error by adding space before ]
 	if [ ! -d "$arch_directory/$water_data_dir" ]; then
 		mkdir "$arch_directory/$water_data_dir"
 	fi
 
-	file_name="water_"
+	file_name="water_usage"
 	file_time_stamp=$(date "+%Y-%m-%d_%H:%M:%S")
 	archive="${file_name}${file_time_stamp}.log"
 
