@@ -7,3 +7,17 @@ First Entry: 2025-06-05 13:05:57
 Last Entry: 2025-06-05 13:09:43
 
 ======================================================
+Analysis Report - Temperature
+---------------------------------
+
+Device: Temp_Recorder_B
+Total Count: 17
+First Entry: 2025-06-05 13:20:12
+Last Entry: 2025-06-05 13:20:28
+
+Device: Temp_Recorder_A
+Total Count: 17
+First Entry: 2025-06-05 13:20:12
+Last Entry: 2025-06-05 13:20:28
+
+======================================================
