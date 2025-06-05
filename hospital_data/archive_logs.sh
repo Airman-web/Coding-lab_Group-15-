@@ -63,7 +63,7 @@ case $choice in
 
 	;;
 3)
-	water_data_dir="water_data_archive"
+	water_data_dir="water_usage_data_archive"
 
 	# Fix the syntax error by adding space before ]
 	if [ ! -d "$arch_directory/$water_data_dir" ]; then
@@ -86,6 +86,6 @@ case $choice in
 
 	;;
 *)
-	echo "invalid choice: please choose 1, 2"
+	echo -e "\ninvalid choice: please re-run script and choose 1, 2, 3"
 	;;
 esac
